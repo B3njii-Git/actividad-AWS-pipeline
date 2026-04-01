@@ -1,55 +1,49 @@
-Basado en la guía de laboratorio proporcionada, aquí tienes una propuesta de archivo `README.md` estructurada y profesional para tu repositorio:
+# actividad-AWS-pipeline
 
----
+## Descripción del proyecto
 
-# Pipeline CI/CD y Arquitectura Multinivel en AWS
+Este repositorio fue creado para desarrollar una actividad relacionada con control de versiones, estrategia de ramas y automatización básica de despliegue.
 
-## Descripción del Proyecto
-[cite_start]Este proyecto consiste en la implementación de un ciclo completo de **DevOps** que integra el control de versiones distribuido, la automatización de construcción de imágenes de contenedores y el despliegue de una infraestructura de red segura en la nube de AWS[cite: 1, 2].
+El proyecto se divide en distintos componentes que permiten practicar un flujo de trabajo ordenado en GitHub, separando cada avance en ramas independientes antes de integrarlo en la rama principal.
 
-[cite_start]El objetivo principal es establecer un flujo de trabajo moderno que garantice la seguridad y la escalabilidad mediante una arquitectura de 3 capas (Web, App y Datos)[cite: 2, 16].
+## Estrategia de ramas
 
----
+Para este repositorio se utiliza una estrategia de ramas de características, donde cada componente se trabaja por separado.
 
-## Estrategia de Ramas (GitFlow)
-[cite_start]Para el desarrollo de este proyecto se ha utilizado una **Estrategia de Ramas de Características (Feature Branches)**[cite: 7]. Los componentes se desarrollaron de forma aislada para asegurar la integridad de la rama principal:
+Las ramas utilizadas en el desarrollo son:
 
-* [cite_start]**`feature/frontend`**: Contiene el código fuente básico (`index.html`) con la interfaz del servidor[cite: 5].
-* [cite_start]**`feature/docker`**: Incluye la configuración del `Dockerfile` basado en `nginx:alpine` para la contenedorización de la aplicación[cite: 6].
-* [cite_start]**`feature/docs`**: Rama dedicada a la documentación y creación de este archivo README[cite: 7].
+- `feature/frontend`: contiene el archivo `index.html` con una página básica "Hola Mundo".
+- `feature/docker`: contiene el archivo `Dockerfile` basado en la imagen oficial `nginx:alpine`.
+- `feature/docs`: contiene la documentación general del proyecto en este archivo `README.md`.
 
-[cite_start]Cada una de estas características fue integrada en la rama `main` mediante el uso de **Pull Requests (PR)** independientes[cite: 8].
+Cada una de estas ramas debe integrarse a `main` mediante un Pull Request independiente.
 
----
+## Propósito del repositorio
 
-## Automatización CI/CD (GitHub Actions)
-[cite_start]Se implementó un flujo de integración continua para automatizar el empaquetado de la solución[cite: 10]:
+El propósito de este repositorio es practicar:
 
-* [cite_start]**Workflow**: Localizado en `.github/workflows/main.yml`, este flujo se activa exclusivamente al realizar un **Pull Request hacia la rama `main`**[cite: 12, 13].
-* [cite_start]**Proceso**: El pipeline realiza automáticamente el login en Docker Hub, construye la imagen a partir del Dockerfile y la sube al repositorio personal del usuario[cite: 14].
-* [cite_start]**Seguridad**: Se utilizaron secretos de GitHub (`USER_DOCKERHUB` y `PASSWORD_DOCKERHUB`) para manejar las credenciales de forma segura[cite: 11].
+- creación y uso de ramas feature
+- trabajo separado por componentes
+- uso de commits ordenados
+- publicación de cambios en GitHub
+- creación de Pull Requests hacia la rama `main`
 
----
+## Estructura básica del proyecto
 
-## Arquitectura de Red en AWS (VPC)
-[cite_start]La infraestructura se diseñó siguiendo un modelo de **3 capas** para aislar los componentes críticos[cite: 16]:
+El repositorio considera los siguientes archivos principales:
 
-### 1. Redes y Subredes
-* [cite_start]**VPC**: Entorno de red aislado con soporte para DNS[cite: 17].
-* [cite_start]**Capa Web**: Subred Pública[cite: 19].
-* [cite_start]**Capa App**: Subred Privada[cite: 20].
-* [cite_start]**Capa de Datos**: Subred Privada[cite: 20].
+- `index.html`
+- `Dockerfile`
+- `README.md`
 
-### 2. Grupos de Seguridad (Firewall)
-| Grupo | Tráfico Permitido | Origen |
-| :--- | :--- | :--- |
-| **GrupoWeb** | HTTP (80), SSH (22), ICMP (Ping) | [cite_start]Cualquier origen (0.0.0.0/0) [cite: 22] |
-| **GrupoApp** | HTTP, SSH, ICMP | [cite_start]Solo desde **GrupoWeb** [cite: 23, 24] |
-| **GrupoDatos**| MySQL (3306), ICMP | [cite_start]Solo desde **GrupoApp** [cite: 25] |
+## Flujo de trabajo
 
----
+1. Se crea una rama para cada componente del proyecto.
+2. Se realizan los cambios necesarios en esa rama.
+3. Se guarda el avance mediante un commit.
+4. Se sube la rama al repositorio remoto.
+5. Se crea un Pull Request hacia `main`.
 
-## Verificación del Despliegue
-[cite_start]Para validar la correcta implementación y el aislamiento de las capas, se realizaron las siguientes pruebas[cite: 27]:
-1.  [cite_start]**Acceso Externo**: Validación de conexión SSH exitosa a la instancia ubicada en la subred pública (Nivel Web)[cite: 31].
-2.  [cite_start]**Conectividad entre Capas**: Prueba de `ping` desde la instancia Web hacia la IP privada de la instancia App para confirmar el salto seguro entre capas[cite: 32, 33].
+## Objetivo
+
+El objetivo de esta actividad es aplicar buenas prácticas básicas de control de versiones, utilizando GitHub como plataforma de colaboración y organización del desarrollo.
