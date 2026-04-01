@@ -2,7 +2,7 @@ name: CI Pipeline - Build and Push to Docker Hub
 
 # El disparador se activa únicamente al realizar un Pull Request hacia la rama main
 on:
-  pull_request:
+  push:
     branches:
       - main
 
