@@ -53,3 +53,13 @@ Basado en la guía de laboratorio proporcionada, aquí tienes una propuesta de a
 [cite_start]Para validar la correcta implementación y el aislamiento de las capas, se realizaron las siguientes pruebas[cite: 27]:
 1.  [cite_start]**Acceso Externo**: Validación de conexión SSH exitosa a la instancia ubicada en la subred pública (Nivel Web)[cite: 31].
 2.  [cite_start]**Conectividad entre Capas**: Prueba de `ping` desde la instancia Web hacia la IP privada de la instancia App para confirmar el salto seguro entre capas[cite: 32, 33].
+
+
+
+
+
+
+
+
+
+Este README fue desarrollado en la rama feature/docs como parte de la actividad.
